@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checking snapshots 1`] = `
+<div>
+  <div
+    className="pt-88"
+  >
+    <h3>
+      F1 Champions
+    </h3>
+    <p
+      className="text-secondary text-16"
+    >
+      Please select a driver to show details
+    </p>
+    <div
+      className="mt-4"
+    >
+      <ChampionsList />
+    </div>
+  </div>
+</div>
+`;

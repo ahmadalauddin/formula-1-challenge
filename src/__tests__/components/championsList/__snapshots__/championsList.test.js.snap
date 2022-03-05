@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing champions list component Checking the snapshot of the component 1`] = `
+<div
+  className="container d-flex justify-content-center align-items-center"
+  style={
+    Object {
+      "height": "60vh",
+    }
+  }
+>
+  <Loader
+    color={
+      Object {
+        "100": "#c8e6c9",
+        "200": "#a5d6a7",
+        "300": "#81c784",
+        "400": "#66bb6a",
+        "50": "#e8f5e9",
+        "500": "#4caf50",
+        "600": "#43a047",
+        "700": "#388e3c",
+        "800": "#2e7d32",
+        "900": "#1b5e20",
+        "A100": "#b9f6ca",
+        "A200": "#69f0ae",
+        "A400": "#00e676",
+        "A700": "#00c853",
+      }
+    }
+    css=""
+    loading={true}
+    size={100}
+    speedMultiplier={1}
+  />
+</div>
+`;

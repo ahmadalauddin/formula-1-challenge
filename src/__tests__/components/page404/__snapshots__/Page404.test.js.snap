@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing champions list component Checking the snapshot of the component 1`] = `
+<Fragment>
+  <div
+    className="d-flex flex-column justify-content-center align-items-center"
+  >
+    <img
+      alt="Page Not Found"
+      className="w-100-p"
+      src="not_found.svg"
+      style={
+        Object {
+          "maxWidth": 554,
+        }
+      }
+    />
+    <p>
+      This is not the page that you are looking for!
+    </p>
+    <Link
+      className="btn btn-outline-secondary"
+      to="/"
+      type="button"
+    >
+      Go Home
+    </Link>
+  </div>
+</Fragment>
+`;

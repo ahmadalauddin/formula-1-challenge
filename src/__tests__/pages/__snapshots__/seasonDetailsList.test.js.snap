@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checking snapshot 1`] = `
+<div>
+  <div
+    className="d-flex flex-column pt-88"
+  >
+    <div
+      className="d-flex flex-row justify-content-between"
+    >
+      <h3
+        className="ml-16"
+      >
+        Season Details - 
+      </h3>
+      <Link
+        className="btn btn-outline-secondary"
+        to="/"
+        type="button"
+      >
+        <Memo(ForwardRef(HomeIcon)) />
+      </Link>
+    </div>
+    <div
+      className="mt-4"
+    >
+      <SeasonDetails
+        className="mt-3"
+      />
+    </div>
+  </div>
+</div>
+`;
