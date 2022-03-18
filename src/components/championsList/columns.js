@@ -25,5 +25,4 @@ export const columns = [
     minWidth: 100,
     align: "right",
   },
-
 ];

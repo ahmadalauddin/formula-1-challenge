@@ -1,6 +1,6 @@
 export const columns = [
   { id: "raceName", label: "Race Name", minWidth: 170 },
-  { id: "round", label: "Round", minWidth: 70, align:"center" },
+  { id: "round", label: "Round", minWidth: 70, align: "center" },
   {
     id: "date",
     label: "Date",
@@ -21,12 +21,12 @@ export const columns = [
     id: "laps",
     label: "Laps",
     minWidth: 70,
-    align: "center"
+    align: "center",
   },
   {
     id: "time",
     label: "Time",
     minWidth: 100,
     align: "center",
-  }
+  },
 ];

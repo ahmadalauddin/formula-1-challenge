@@ -1,73 +1,56 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ReactCountryFlag from "react-country-flag";
 
 import "./table.scss";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-
 import { columns } from "./columns";
 
 const DataTable = (props) => {
-  const [listData, setListData] = useState([]);
   const navigate = useNavigate();
-  const rows = props.ListData;
+  const { listData } = props;
 
-  useEffect(() => {
-    setListData(props.ListData);
-  }, [props.ListData]);
+  useEffect(() => {}, [listData]);
 
   const handleRowClick = (row) => {
     navigate(`/season/${row.season}`, { state: { driverId: row.id } });
   };
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer className="championsListHeight" sx={{}}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  className="tableHeader"
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((item, index) => (
-              <TableRow
-                id={`data_row`}
-                onClick={() => handleRowClick(item)}
-                hover={true}
-                key={index}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell sx={{ fontWeight: 700 }} component="th" scope="item">
-                  {item.name}
-                </TableCell>
-                <TableCell>{item.nationality}</TableCell>
-                <TableCell align="center" sx={{ fontWeight: 700 }}>
-                  {item.season}
-                </TableCell>
-                <TableCell align="center">{item.round}</TableCell>
-                <TableCell align="center">{item.wins}</TableCell>
-                <TableCell align="right">{item.points}</TableCell>
-              </TableRow>
+    <div>
+      <table id="responsive-table-champions">
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th key={column.id}>{column.label}</th>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Paper>
+          </tr>
+        </thead>
+        <tbody>
+          {listData.map((item) => (
+            <tr
+              id="data_row"
+              key={item.season}
+              className="hoverRow"
+              onClick={() => handleRowClick(item)}
+            >
+              <td className="font-500">{item.name}</td>
+              <td>
+                {item.nationality} &nbsp;
+                <ReactCountryFlag
+                  countryCode={item.countryCode}
+                  title={item.countryCode}
+                  svg
+                />
+              </td>
+              <td>{item.season}</td>
+              <td>{item.round}</td>
+              <td className="font-500">{item.wins}</td>
+              <td className="font-500">{item.points}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

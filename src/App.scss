@@ -1,20 +1,17 @@
 @import "~bootstrap/scss/bootstrap-reboot";
 @import "~bootstrap/scss/bootstrap";
+@import "./variables";
 
 body{
   font-family: 'Montserrat', sans-serif;
 }
 
 .App{
-  background-color: f0f0f0;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  align-items: left;
   padding: 32px;
   justify-content: flex-start;
-  font-size: calc(10px + 2vmin);
-  color: #424242;
 }
 
 .pl-32{
@@ -37,12 +34,10 @@ body{
   padding-top: 88px;
 }
 
-.tableHeader{
-  background-color: #eee !important;
-  font-weight: 700 !important;
-  color: #757575 !important;
+.font-500{
+  font-weight: 500;
 }
 
-.text-16{
-  font-size: 16px;
+.height-60{
+  height: 60vh;
 }

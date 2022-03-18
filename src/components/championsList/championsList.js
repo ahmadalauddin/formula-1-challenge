@@ -12,42 +12,37 @@ const ChampionsList = () => {
   const [championsList, setChampionsList] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-
-  async function getList(){
+  async function getList() {
     const data = await getChampionsList();
     let driverStandingsData = data.MRData.StandingsTable.StandingsLists;
 
-    if(driverStandingsData.length === 0){
+    if (driverStandingsData.length === 0) {
       setLoading(false);
-      return (
-        <DataNotFound/>
-      )
+      return <DataNotFound />;
     }
     setChampionsList(leanDriversStandingsList(driverStandingsData));
     setLoading(false);
   }
 
-
   useEffect(() => {
-
     getList();
 
+    return () => {
+      setChampionsList([]);
+      setLoading(true);
+    };
   }, []);
-
 
   if (isLoading)
     return (
-      <div
-        className="container d-flex justify-content-center align-items-center"
-        style={{ height: "60vh" }}
-      >
+      <div className="container d-flex justify-content-center align-items-center height-60">
         <ClipLoader color={green} loading={isLoading} size={100} />
       </div>
     );
 
   return (
     <div>
-      <DataTable ListData={championsList} />
+      <DataTable listData={championsList} />
     </div>
   );
 };

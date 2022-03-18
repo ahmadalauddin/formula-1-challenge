@@ -6,8 +6,11 @@ export function leanSeasonDetails(seasonDetails) {
 
     seasonObj.raceName = item.raceName;
     seasonObj.date = item.date;
-    seasonObj.round = item.round; 
-    seasonObj.winner = item.Results[0].Driver.givenName + ' ' + item.Results[0].Driver.familyName;
+    seasonObj.round = item.round;
+    seasonObj.winner =
+      item.Results[0].Driver.givenName +
+      " " +
+      item.Results[0].Driver.familyName;
     seasonObj.laps = item.Results[0].laps;
     seasonObj.points = item.Results[0].points;
     seasonObj.status = item.Results[0].status;

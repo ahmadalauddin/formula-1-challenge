@@ -1,20 +1,17 @@
-import  { shallow } from 'enzyme';
+import { shallow } from "enzyme";
 
-import PageNotFound from '../../pages/notFound';
-
+import PageNotFound from "../../pages/notFound";
 
 let wrapper;
 
-beforeEach(()=>{
-  wrapper = shallow(<PageNotFound/>);
-})
+beforeEach(() => {
+  wrapper = shallow(<PageNotFound />);
+});
 
-
-it("Checking snapshots", ()=>{
+it("Checking snapshots", () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-it("Checking if padding is applied on top", ()=>{
+it("Checking if padding is applied on top", () => {
   expect(wrapper.exists(".pt-88")).toEqual(true);
 });
-

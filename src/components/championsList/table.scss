@@ -1,3 +1,224 @@
-.championsListHeight{
-    max-height: calc(100vh - 242px);
+@import "../../variables";
+
+.trophy{
+	color: $yellow-color;
 }
+
+.hoverRow{
+    &:hover {
+        background-color: lighten($primary-color, 50%);;
+    }
+}
+
+.seasonBg{
+	background-color: $half-white-color;
+}
+
+.hightlightChampion{
+	background-color: $champion-color;
+}
+
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+    border-radius: 0.5em;
+    box-shadow: 1px 1px 4px $disabled-color;
+	float: left;
+	thead {
+        background-color: $off-white-color;
+		th {
+			padding: 16px 16px;
+			text-align: left;
+			font-size: 16px;
+            color: lighten($font-primary-color, 25%);
+		}
+		
+	}
+
+	tbody {
+		tr {
+			border-bottom: 2px solid $grey-color;
+			td {
+                font-size: 18px;
+				padding: .75em 0;
+                color: $font-primary-color;
+                border-bottom: 1px solid $grey-color;
+			}
+		}
+	}
+
+	tfoot {
+		td {
+			padding: 8px 16px;    
+			text-align: left;
+			font-size: 16px;
+		}
+	}
+}
+
+@media screen and (min-width: $large-up) {
+  table {
+		width: 100%;
+        
+		thead {
+			th {
+
+			}
+			
+		}
+
+		tbody {
+			tr {
+				border-bottom: 1px solid $grey-color;
+				td {
+                    border-bottom: none;
+				}
+			}
+		}
+	}
+}
+
+//Making the table responsive using mixins
+@mixin list-view {
+	display: block;
+  
+
+  tbody {
+    border: none;
+  }
+		tbody, th, td, tr, tfoot {
+			display: block; 
+            
+		}
+
+		thead {
+			display: none;
+		}
+		tr {
+            float: left;
+            width: 100%;
+            border: 1px solid $grey-color;
+			border-top: 4px solid $disabled-color;
+
+			td {
+				padding: 1em 1em 0.5em 50%;
+				float:left;
+       		    width: 100%;
+				&:before {
+					width: 100%;
+					display: block;
+					float: left;
+					padding: .5em .5em .5em 0;
+					clear: both;
+					margin: -.5em 0 0 -100%;
+					font-size: 16px;
+                    font-weight: 500;
+
+				}
+			}
+		}
+
+		tr:nth-of-type(even) {
+			td {
+				&:before {
+					
+				}
+			}
+		}
+}
+
+@mixin table-view {
+	display: table;
+	border: none;
+
+  tbody {
+	  
+  }
+	th, td {
+		display: table-cell; 
+	}
+
+	tr {
+		display: table-row;
+		border: none;
+		border-bottom: 1px solid $grey-color;
+        float: none;
+        margin: 0;
+		box-shadow: none;
+
+		td {
+			padding: 24px 16px;
+            float: none;
+            width: auto;
+
+			&:before {
+				padding: 0 !important;
+			}
+		}
+	}
+
+	thead {
+		display: table-header-group;
+	}
+
+	tbody,tfoot {
+		display: table-row-group;
+	}
+
+	tr:nth-of-type(even) {
+		td {
+			&:before {
+				
+			}
+		}
+	}
+}
+
+%responive-tables {
+	@include list-view;
+
+	@media screen and (min-width: $medium-up) { 
+		@include table-view;
+		
+	}
+}
+
+%responive-tables-large {
+	@include list-view;
+
+	@media screen and (min-width: $large-up) { 
+		@include table-view;
+		
+	}
+}
+
+@mixin responive-tables-large($headings...) {
+	$list: $headings;
+
+	@each $list-headings in $list {
+		$i: index($list, $list-headings);
+		tbody tr td:nth-of-type(#{$i}):before { 
+			content: $list-headings; 
+		}
+		
+		@media screen and (min-width: $large-up) { 
+			tbody tr td:nth-of-type(#{$i}):before { 
+				content: ''; 
+			}
+		}
+
+	}
+}
+
+#responsive-table-champions {
+	@extend %responive-tables-large;
+	@include responive-tables-large('Name', 'Nationality', 'Seasons','Round','Wins', 'Points');
+}
+
+
+#responsive-table-seasons {
+	@extend %responive-tables-large;
+	@include responive-tables-large('Race Name', 'Round', 'Date','Grid','Winner', 'Laps', "Time");
+}
+

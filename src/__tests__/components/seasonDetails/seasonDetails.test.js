@@ -1,5 +1,5 @@
 import React from "react";
-import {shallow} from "enzyme";
+import { shallow } from "enzyme";
 import SeasonDetails from "../../../components/seasonDetails/seasonDetails";
 
 //mock to handle useNavigate used in the component
@@ -10,11 +10,11 @@ jest.mock("react-router-dom", () => ({
 }));
 
 let wrapper;
-const seasonYear = ""
+const seasonYear = "";
 
-beforeEach(()=>{
-  wrapper = shallow(<SeasonDetails year={seasonYear}/>);
-})
+beforeEach(() => {
+  wrapper = shallow(<SeasonDetails year={seasonYear} />);
+});
 
 describe("Testing season details", () => {
   it("Checking the snapshot of the component", () => {
@@ -26,8 +26,6 @@ describe("Testing season details", () => {
   });
 
   it("Checking if thr right season is passed, show Loader", () => {
-    expect(wrapper.find("Loader")).toBeTruthy()
+    expect(wrapper.find("Loader")).toBeTruthy();
   });
-
-
 });

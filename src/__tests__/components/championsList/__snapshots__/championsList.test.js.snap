@@ -2,12 +2,7 @@
 
 exports[`Testing champions list component Checking the snapshot of the component 1`] = `
 <div
-  className="container d-flex justify-content-center align-items-center"
-  style={
-    Object {
-      "height": "60vh",
-    }
-  }
+  className="container d-flex justify-content-center align-items-center height-60"
 >
   <Loader
     color={
