@@ -1,5 +1,5 @@
-# Mobiquity F1 Champions
-Mobiquity F1 Champions is a SPA (Single Page Application) which shows list of F1 champions from 2005 till the date.  There are two screens in the application
+# F1 Champions
+F1 Champions is a SPA (Single Page Application) which shows list of F1 champions from 2005 till the date.  There are two screens in the application
 ### Main-screen: 
     Shows list of all the F1 champions with the following information:
         Champion Name, Nationality, Season, Round, Wins, Points
